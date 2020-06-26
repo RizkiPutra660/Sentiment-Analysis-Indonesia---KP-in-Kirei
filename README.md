@@ -1,7 +1,7 @@
 # Sentiment-Analysis-Indonesia---KP-in-Kirei
 Analyzing Indonesia tweets, is it positive, negative, or neutral.
 
-## How to scrape tweets
+## How to use
 Scraping tweets has a purpose to train the machine learning model for labeling.
 Usage steps:
 1. Using GetOldTweets3. (see [GetOldTweets 3 Documentation](https://pypi.org/project/GetOldTweets3/) to install and scraping example).
