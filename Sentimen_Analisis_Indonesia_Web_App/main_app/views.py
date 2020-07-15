@@ -52,12 +52,12 @@ def analyzehashtag(request):
     negative = 0
     for tweet in tweepy.Cursor(api.search,q="" + request.GET.get("text") + " -filter:retweets",rpp=5,lang="id", tweet_mode='extended').items(150):
         prediction = predict(tweet.full_text)
-    if(prediction["label"] == "Positive"):
-        positive += 1
-    if(prediction["label"] == "Neutral"):
-        neutral += 1
-    if(prediction["label"] == "Negative"):
-        negative += 1
+        if(prediction["label"] == "Positive"):
+            positive += 1
+        if(prediction["label"] == "Neutral"):
+            neutral += 1
+        if(prediction["label"] == "Negative"):
+            negative += 1
     return JsonResponse({"positive": positive, "neutral": neutral, "negative": negative});
 
 @api_view(["GET"])
