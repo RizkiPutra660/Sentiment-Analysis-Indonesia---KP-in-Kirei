@@ -18,22 +18,22 @@ X = data.iloc[:,[2]]
   ```python
   review("")
   ```
-  Just type a sentence and you'll see the sentiment result (1 = positive, 0 = neutral, or -1 = negative)
+Just type a sentence and you'll see the sentiment result (1 = positive, 0 = neutral, or -1 = negative).
 6. The code will make a file named "classifier.sav" and "vectorizer.sav". Copy those files to [main_app](https://github.com/RizkiPutra660/Sentiment-Analysis-Indonesia---KP-in-Kirei/tree/master/Sentimen_Analisis_Indonesia_Web_App/main_app) folder. Those are Machine Learning model files.
 7. Done! Now you can run the webapp.
 
 ## How to run the Webapp
-1. Clone the repository
+1. Clone the repository.
 2. open command prompt in [react-frontend](https://github.com/RizkiPutra660/Sentiment-Analysis-Indonesia---KP-in-Kirei/tree/master/Sentimen_Analisis_Indonesia_Web_App/react-frontend) folder, and type 
 ```bash
 npm install
 ```
-to install the front-end dependencies
+to install the front-end dependencies.
 3. Inside the [Sentimen_Analisis_Indonesia_Web_App](https://github.com/RizkiPutra660/Sentiment-Analysis-Indonesia---KP-in-Kirei/tree/master/Sentimen_Analisis_Indonesia_Web_App)folder, type
 ```bash
 python manage.py runserver
 ```
-to run the application
+to run the application.
 4. Enjoy!
 
 
