@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "./static/css/main.7b30e15e.chunk.css",
+    "main.js": "./static/js/main.cb763174.chunk.js",
+    "main.js.map": "./static/js/main.cb763174.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.2e086a27.js",
+    "runtime-main.js.map": "./static/js/runtime-main.2e086a27.js.map",
+    "static/js/2.7283b8eb.chunk.js": "./static/js/2.7283b8eb.chunk.js",
+    "static/js/2.7283b8eb.chunk.js.map": "./static/js/2.7283b8eb.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.23e8a6d661f39cb445d9c6a0d8097e35.js": "./precache-manifest.23e8a6d661f39cb445d9c6a0d8097e35.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.7b30e15e.chunk.css.map": "./static/css/main.7b30e15e.chunk.css.map",
+    "static/js/2.7283b8eb.chunk.js.LICENSE.txt": "./static/js/2.7283b8eb.chunk.js.LICENSE.txt",
+    "static/media/burungpuyuh.mp4": "./static/media/burungpuyuh.df3ec7fa.mp4"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2e086a27.js",
+    "static/js/2.7283b8eb.chunk.js",
+    "static/css/main.7b30e15e.chunk.css",
+    "static/js/main.cb763174.chunk.js"
+  ]
+}

@@ -1,0 +1,11 @@
+sentimentanalysis_kirei
+https://www.sentimentanalysiskirei.xyz
+https://ayanashahab.xyz
+Access token 
+1014634292960362497-eqW1Cxg2e0AmKlE1z6goqdskXSJd9o
+Access Token Secret
+OLLX29LAlxeT8r2Yg59WN1jfk6tLHN0mwpL1Bwh8qZ6gb
+API key:
+qkyZCE6zSkTSpGVDhQj1LBZSU
+API secret key:
+hKwUa2kyWb0AeobQMuAPTzeBBxWHPP6SDJ4WACxlyweapsHyMu
