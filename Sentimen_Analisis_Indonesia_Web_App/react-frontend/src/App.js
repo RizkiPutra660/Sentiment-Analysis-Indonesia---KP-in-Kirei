@@ -141,8 +141,9 @@ class App extends Component {
         if(this.state.progressBar){
             return(
                 <div class="text-center">
-                    <video loop src={require('./burungpuyuh.mp4')} type = "video/mp4" width="400" height="320" autoPlay loop/>
-                    <h2 class="progressheader">Please Wait</h2>
+                  <h2 class="progressheader">Please Wait</h2>
+                  <img src={require('./loading_bar.gif')} width="50" height="50"></img>
+                  <h2 class="progressheader">Please Wait</h2>
                 </div>
             );
         }
@@ -174,23 +175,26 @@ class App extends Component {
               <h1 class="display-4 text-center" style={{'margin-top':this.state.submitted?'5%':'30%'}}>Analisis Sentimen Twitter Indonesia</h1>
               <br /><br />
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control hashtag" id="basic-url" aria-describedby="basic-addon3" placeholder="Masukan Kata Kunci" onChange={this.inputHandler}/>
+                  <input type="text" class="form-control hashtag" id="basic-url" aria-describedby="basic-addon3" placeholder="Masukan Hanya Satu Kata dan Tunggu Hasilnya" onChange={this.inputHandler}/>
               </div>
               <br />
               <div class="row">
                   <div class="col-sm-12">
                     <div class="text-center">
-                      <button class="btn text-center btn-outline-secondary submit" type="button" onClick={this.submitHandler}>Analyze</button>
+                      <button class="btn text-center btn-outline-secondary submit" type="button" onClick={this.submitHandler}>Analisis</button>
+                      <br></br>
+                      <br></br>
+                      <h6>Mau Tau Apa yang Lagi Trending di Twitter ? Silahkan Buka dan Klik &#8594; <a href="http://twitter.com"><img src={require('./ikon-twitter.png')} width="25" height="25"></img></a></h6>
                     </div>
                   </div>
-                </div>
-                <br /><br /><br /><br />
-                {this.showAnalysis()}
+              </div>
+              {this.showAnalysis()}
               {this.state.submitted?renderTweets:<br />}
-                {this.showLoadingBar()}
+              {this.showLoadingBar()}
+                <br></br><br></br>
           </div>
           <div class="footer my-auto">
-              <p>Made with <h1 class="fa fa-heart" style={{"color": "#00aced"}}></h1> by Athallah, Hanif, Miqdad, Risyam (<a href="https://github.com/RizkiPutra660/Sentiment-Analysis-Indonesia---KP-in-Kirei">Github</a>)</p>
+              <p><h1 class="fa fa-twitter" style={{"color": "#00aced"}}></h1> Dibuat Oleh Athallah, Hanif, Miqdad, Risyam &copy;(<a href="https://github.com/RizkiPutra660/Sentiment-Analysis-Indonesia---KP-in-Kirei">Github</a>)<h1 class="fa fa-github" style={{"color": "#00aced"}}></h1></p>
           </div>
       </div>
   );
