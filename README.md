@@ -3,8 +3,8 @@ Menganalisis tweets bahasa indonesia, apakah itu positif, negatif, atau netral.
 
 ## Cara Penggunaan
 Scraping tweets bertujuan untuk melatih model machine learning untuk dilakukan pelabelan.
-Langkah-langkah Penggunaan:
-1. menggunakan fungsi GetOldTweets3. (lihat [GetOldTweets 3 Documentation](https://pypi.org/project/GetOldTweets3/) untuk menginstal dan mengambil tweets).
+Berikut langkah-langkah Penggunaannya:
+1. Gunakan fungsi GetOldTweets3. (lihat [GetOldTweets 3 Documentation](https://pypi.org/project/GetOldTweets3/) untuk menginstal dan mengambil tweets).
 2. Impor csv anda ke file [Tweets_Cleaning_Indonesia.ipynb](https://github.com/RizkiPutra660/Sentiment-Analysis-Indonesia---KP-in-Kirei/blob/master/Tweets%20Cleaning%20Indonesia.ipynb) 
 ```python
 DATASET_ENCODING = "ISO-8859-1"
@@ -18,9 +18,9 @@ X = data.iloc[:,[2]]
   ```python
   review("")
   ```
-Cukup ketik kalimat dan anda akan melihat hasil sentimen (1 = positif, 0 = netral, atau -1 = negatif).
+Cukup ketikan suatu kalimat dan anda akan melihat hasil sentimen (1 = positif, 0 = netral, atau -1 = negatif).
 
-6. Kode tersebut akan membuat file bernama "classifier.sav" dan "vectorizer.sav". Salin file-file tersebut ke [main_app](https://github.com/RizkiPutra660/Sentiment-Analysis-Indonesia---KP-in-Kirei/tree/master/Sentimen_Analisis_Indonesia_Web_App/main_app) folder. Itu adalah file model Machine Learning.
+6. Kode tersebut akan membuat file bernama "classifier.sav" dan "vectorizer.sav". dan salin file-file tersebut ke [main_app](https://github.com/RizkiPutra660/Sentiment-Analysis-Indonesia---KP-in-Kirei/tree/master/Sentimen_Analisis_Indonesia_Web_App/main_app) folder. Itu adalah file model Machine Learning.
 
 7. Selesai! Sekarang Anda dapat menjalankan aplikasi web.
 
