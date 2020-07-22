@@ -12,7 +12,7 @@ data = pd.read_csv('Your_CSV_File.csv', encoding =DATASET_ENCODING, dtype={'text
 data['text']=data['text'].apply(str)
 X = data.iloc[:,[2]]
 ```
-3. Jalankan kodenya dan tunggu sampai selesai. 
+3. Jalankan kodenya dan tunggu hingga selesai. 
 4. Setelah selesai, anda akan mendapatkan file bernama "Clean_Tweets_Indonesia.csv". Masukan file ini ke [Prediction Using SVM.ipynb](https://github.com/RizkiPutra660/Sentiment-Analysis-Indonesia---KP-in-Kirei/blob/master/Training_data_dengan_Machine_Learning/Prediction%20Using%20SVM.ipynb).
 5. Jalankan hingga selesai. pada akhir kode, anda akan melihat
   ```python
