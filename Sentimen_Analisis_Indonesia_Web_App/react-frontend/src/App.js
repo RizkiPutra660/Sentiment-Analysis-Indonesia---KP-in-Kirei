@@ -141,9 +141,14 @@ class App extends Component {
         if(this.state.progressBar){
             return(
                 <div class="text-center">
-                  <h2 class="progressheader">Please Wait</h2>
-                  <img src={require('./loading_bar.gif')} width="50" height="50"></img>
-                  <h2 class="progressheader">Please Wait</h2>
+                  <h2 class="progressheader">Harap Tunggu Ya</h2>
+                  <img src={require('./pacmanloading.gif')} width="50" height="50"></img>
+                  <br></br><br></br>
+                  <h6>Sambil Nunggu Boleh Nih Nikmati Video dan Lagu yang Tersedia</h6>
+                  <br></br>
+                  <audio title="Savage Love - Derulo" src={require('./savagelove.mp3')} type="audio/mpeg" controls></audio>
+                  <br></br>
+                  <video src={require('./Dana- Basa-basinya Orang Indonesia (SUCI 6 Show 13).mp4')} type="video/mp4" width="350" height="200" controls></video>
                 </div>
             );
         }
@@ -172,16 +177,17 @@ class App extends Component {
   return (
       <div>
           <div class="container">
-              <h1 class="display-4 text-center" style={{'margin-top':this.state.submitted?'5%':'30%'}}>Analisis Sentimen Twitter Indonesia</h1>
-              <br /><br />
+              <h1 class="display-4 text-center" style={{'margin-top':this.state.submitted?'5%':'14%'}}>Analisis Sentimen Twitter Indonesia</h1>
+              <h4 class="display-5 text-center"> #TetapDiRumah </h4>
+              <br></br>
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control hashtag" id="basic-url" aria-describedby="basic-addon3" placeholder="Masukan Hanya Satu Kata dan Tunggu Hasilnya" onChange={this.inputHandler}/>
+                  <input id="keyword" type="text" class="form-control hashtag" id="basic-url" aria-describedby="basic-addon3" placeholder="Masukan Hanya Satu Kata dan Tunggu Hasilnya" onChange={this.inputHandler} onkeypress="fungsienter()"/>
               </div>
               <br />
               <div class="row">
                   <div class="col-sm-12">
                     <div class="text-center">
-                      <button class="btn text-center btn-outline-secondary submit" type="button" onClick={this.submitHandler}>Analisis</button>
+                      <button id="tombol" class="btn text-center btn-outline-secondary submit" type="button" onClick={this.submitHandler}>Analisis</button>
                       <br></br>
                       <br></br>
                       <h6>Mau Tau Apa yang Lagi Trending di Twitter ? Silahkan Buka dan Klik &#8594; <a href="http://twitter.com"><img src={require('./ikon-twitter.png')} width="25" height="25"></img></a></h6>
