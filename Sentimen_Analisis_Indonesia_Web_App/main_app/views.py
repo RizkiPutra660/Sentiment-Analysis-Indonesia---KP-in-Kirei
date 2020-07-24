@@ -30,7 +30,18 @@ def predict(text, include_neutral=True):
         label = "Negative"
     if(result == 1):
         label = "Positive"
-    return {"label" : label} 
+    return {"label" : label}
+
+def most_frequent(List): 
+    counter = 0
+    num = List[0] 
+      
+    for i in List: 
+        curr_frequency = List.count(i) 
+        if(curr_frequency> counter): 
+            counter = curr_frequency 
+            num = i 
+    return num  
 
 # Create your views here.
 def homepage(request):
@@ -67,6 +78,7 @@ def gettweets(request):
         temp = {}
         temp["text"] = tweet.full_text
         temp["username"] = tweet.user.screen_name
+        temp["usercount"] = most_frequent(temp["username"])
         prediction = predict(tweet.full_text)
         temp["label"] = prediction["label"]
         tweets.append(temp)
