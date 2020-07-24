@@ -177,11 +177,11 @@ class App extends Component {
   return (
       <div>
           <div class="container">
-              <h1 class="display-4 text-center" style={{'margin-top':this.state.submitted?'5%':'14%'}}>Analisis Sentimen Twitter Indonesia</h1>
+              <h1 class="display-4 text-center" style={{'margin-top':this.state.submitted?'10%':'13%'}}>Analisis Sentimen Twitter Indonesia</h1>
               <h4 class="display-5 text-center"> #TetapDiRumah </h4>
               <br></br>
                 <div class="input-group mb-3">
-                  <input id="keyword" type="text" class="form-control hashtag" id="basic-url" aria-describedby="basic-addon3" placeholder="Masukan Hanya Satu Kata dan Tunggu Hasilnya" onChange={this.inputHandler} onkeypress="fungsienter()"/>
+                  <input type="text" class="form-control hashtag" id="basic-url" aria-describedby="basic-addon3" placeholder="Masukan Hanya Satu Kata dan Tunggu Hasilnya" onChange={this.inputHandler} onkeypress="fungsienter()"/>
               </div>
               <br />
               <div class="row">
