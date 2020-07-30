@@ -27,6 +27,7 @@ class App extends Component {
             },
             series: [44, 55, 41],
             tweets: [],
+            terbanyak : "",
             hashtag_desc: ""
         }
     }
@@ -77,6 +78,7 @@ class App extends Component {
         var negative = 0
         var neutral = 0
         var self = this;
+
         try {        
           axios.get('http://localhost:8000/analyzehashtag', {
               params: {
@@ -110,6 +112,7 @@ class App extends Component {
               }
           }).then(function(response) {
               self.setState({tweets: response.data.results});
+              self.setState({terbanyak : response.data.terbanyak})
           });
           } catch(e) {
             console.log(e);
@@ -125,18 +128,24 @@ class App extends Component {
         if(this.state.submitted == true){
             return(
                 <div class="row">
-                <div class="col-sm-4">
-                    <Chart options={this.state.options} series={this.state.series} type="donut" width="420" />
-                </div>
-                <div class="offset-sm-1 col-sm-7">
-                <h1 class="heading_desc">{this.state.hashtag_desc}</h1>
-                <br /><br />
+                  <div class="col-sm-4">
+                      <Chart options={this.state.options} series={this.state.series} type="donut" width="420" />
+                  </div>
+                <div class="offset-sms-1 col-sm-7">
+                  <h1 class="heading_desc">{this.state.hashtag_desc}</h1>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <h1 class="heading_desc">MVP : @{this.state.terbanyak}</h1>
+                  <br /><br />
                 </div>
                 </div>  
             );
         }
     }
-    
+
     showLoadingBar = () => {
         if(this.state.progressBar){
             return(
@@ -155,7 +164,7 @@ class App extends Component {
     }
         
     render() {
-        
+
         var renderTweets = this.state.tweets.map(function(item, i){
             var color = "#46BFBD";
             

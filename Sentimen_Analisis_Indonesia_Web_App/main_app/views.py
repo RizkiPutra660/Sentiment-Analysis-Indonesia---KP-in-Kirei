@@ -61,7 +61,7 @@ def analyzehashtag(request):
     positive = 0
     neutral = 0
     negative = 0
-    for tweet in tweepy.Cursor(api.search,q="" + request.GET.get("text") + " -filter:retweets",rpp=5,lang="id", tweet_mode='extended').items(150):
+    for tweet in tweepy.Cursor(api.search,q="" + request.GET.get("text") + " -filter:retweets",rpp=5,lang="id", tweet_mode='extended').items(10):
         prediction = predict(tweet.full_text)
         if(prediction["label"] == "Positive"):
             positive += 1
@@ -74,12 +74,14 @@ def analyzehashtag(request):
 @api_view(["GET"])
 def gettweets(request):
     tweets = []
-    for tweet in tweepy.Cursor(api.search,q="" + request.GET.get("text") + " -filter:retweets",rpp=5,lang="id", tweet_mode='extended').items(150):
+    usercount = []
+    for tweet in tweepy.Cursor(api.search,q="" + request.GET.get("text") + " -filter:retweets",rpp=5,lang="id", tweet_mode='extended').items(10):
         temp = {}
         temp["text"] = tweet.full_text
         temp["username"] = tweet.user.screen_name
-        temp["usercount"] = most_frequent(temp["username"])
         prediction = predict(tweet.full_text)
         temp["label"] = prediction["label"]
         tweets.append(temp)
-    return JsonResponse({"results": tweets});
+        usercount.append(temp["username"])
+    terbanyak = most_frequent(usercount)
+    return JsonResponse({"results": tweets, "terbanyak" : terbanyak});
