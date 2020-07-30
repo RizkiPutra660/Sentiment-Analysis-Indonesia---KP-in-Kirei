@@ -95,7 +95,7 @@ class App extends Component {
           }
         
         try {        
-        var url = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + this.state.hashtag + "&limit=1&format=json"
+        var url = "https://id.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + this.state.hashtag + "&limit=1&format=json"
           axios.get(url).then(function(response) {
               self.setState({hashtag_desc: response.data[2][0]});
           });
@@ -126,7 +126,7 @@ class App extends Component {
             return(
                 <div class="row">
                 <div class="col-sm-4">
-                    <Chart options={this.state.options} series={this.state.series} type="donut" width="420" />
+                    <Chart options={this.state.options} series={this.state.series} type="donut" width="420" /><h2 class="fi-module-focus__header__title">England</h2>
                 </div>
                 <div class="offset-sm-1 col-sm-7">
                 <h1 class="heading_desc">{this.state.hashtag_desc}</h1>
@@ -141,14 +141,8 @@ class App extends Component {
         if(this.state.progressBar){
             return(
                 <div class="text-center">
-                  <h2 class="progressheader">Harap Tunggu Ya</h2>
-                  <img src={require('./pacmanloading.gif')} width="50" height="50"></img>
-                  <br></br><br></br>
-                  <h6>Sambil Nunggu Boleh Nih Nikmati Video dan Lagu yang Tersedia</h6>
-                  <br></br>
-                  <audio title="Savage Love - Derulo" src={require('./savagelove.mp3')} type="audio/mpeg" controls></audio>
-                  <br></br>
-                  <video src={require('./Dana- Basa-basinya Orang Indonesia (SUCI 6 Show 13).mp4')} type="video/mp4" width="350" height="200" controls></video>
+                    <img src={require('./loading_bar.gif')} width="400" height="320"/>
+                    <h2 class="progressheader">Please Wait</h2>
                 </div>
             );
         }
@@ -167,7 +161,7 @@ class App extends Component {
             }
               return (
                     <div key={i} class="tweets">
-                    <h2>@{item.username}</h2>
+                    <h2>@{item.username} - {item.Bot}</h2>
                     <p>{item.text}</p>
                     <h3 style={{"color": color}}>Predicted Sentiment - {item.label}</h3>
                     </div>
@@ -177,30 +171,26 @@ class App extends Component {
   return (
       <div>
           <div class="container">
-              <h1 class="display-4 text-center" style={{'margin-top':this.state.submitted?'5%':'14%'}}>Analisis Sentimen Twitter Indonesia</h1>
-              <h4 class="display-5 text-center"> #TetapDiRumah </h4>
-              <br></br>
+              <h1 class="display-4 text-center" style={{'margin-top':this.state.submitted?'5%':'30%'}}>Analisis Sentimen Twitter Indonesia</h1>
+              <br /><br />
                 <div class="input-group mb-3">
-                  <input id="keyword" type="text" class="form-control hashtag" id="basic-url" aria-describedby="basic-addon3" placeholder="Masukan Hanya Satu Kata dan Tunggu Hasilnya" onChange={this.inputHandler} onkeypress="fungsienter()"/>
+                  <input type="text" class="form-control hashtag" id="basic-url" aria-describedby="basic-addon3" placeholder="Masukan Kata Kunci" onChange={this.inputHandler}/>
               </div>
               <br />
               <div class="row">
                   <div class="col-sm-12">
                     <div class="text-center">
-                      <button id="tombol" class="btn text-center btn-outline-secondary submit" type="button" onClick={this.submitHandler}>Analisis</button>
-                      <br></br>
-                      <br></br>
-                      <h6>Mau Tau Apa yang Lagi Trending di Twitter ? Silahkan Buka dan Klik &#8594; <a href="http://twitter.com"><img src={require('./ikon-twitter.png')} width="25" height="25"></img></a></h6>
+                      <button class="btn text-center btn-outline-secondary submit" type="button" onClick={this.submitHandler}>Analyze</button>
                     </div>
                   </div>
-              </div>
-              {this.showAnalysis()}
+                </div>
+                <br /><br /><br /><br />
+                {this.showAnalysis()}
               {this.state.submitted?renderTweets:<br />}
-              {this.showLoadingBar()}
-                <br></br><br></br>
+                {this.showLoadingBar()}
           </div>
           <div class="footer my-auto">
-              <p><h1 class="fa fa-twitter" style={{"color": "#00aced"}}></h1> Dibuat Oleh Athallah, Hanif, Miqdad, Risyam &copy;(<a href="https://github.com/RizkiPutra660/Sentiment-Analysis-Indonesia---KP-in-Kirei">Github</a>)<h1 class="fa fa-github" style={{"color": "#00aced"}}></h1></p>
+              <p>Made with <h1 class="fa fa-heart" style={{"color": "#00aced"}}></h1> by Athallah, Hanif, Miqdad, Risyam (<a href="https://github.com/RizkiPutra660/Sentiment-Analysis-Indonesia---KP-in-Kirei">Github</a>)</p>
           </div>
       </div>
   );
