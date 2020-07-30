@@ -10,6 +10,7 @@ import json
 import jsonify
 import tweepy
 import pickle
+import botometer
 from .config import consumer_key, consumer_secret, access_token, access_token_secret
 
 vectorizer = pickle.load(open('main_app/vectorizer.sav', 'rb'))
@@ -19,7 +20,14 @@ classifier = pickle.load(open('main_app/classifier.sav', 'rb'))
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth,wait_on_rate_limit=True)
-        
+rapidapi_key = "10ccc34fe3msh619a369946ab6d5p119867jsn85893caaa537"
+twitter_app_auth = {
+    'consumer_key': 'qkyZCE6zSkTSpGVDhQj1LBZSU',
+    'consumer_secret': 'hKwUa2kyWb0AeobQMuAPTzeBBxWHPP6SDJ4WACxlyweapsHyMu',
+    'access_token': '1014634292960362497-eqW1Cxg2e0AmKlE1z6goqdskXSJd9o',
+    'access_token_secret': 'OLLX29LAlxeT8r2Yg59WN1jfk6tLHN0mwpL1Bwh8qZ6gb',
+  }
+
 def predict(text, include_neutral=True):
     text_vector = vectorizer.transform([text])
     # Predict
@@ -32,16 +40,16 @@ def predict(text, include_neutral=True):
         label = "Positive"
     return {"label" : label}
 
-def most_frequent(List): 
-    counter = 0
-    num = List[0] 
-      
-    for i in List: 
-        curr_frequency = List.count(i) 
-        if(curr_frequency> counter): 
-            counter = curr_frequency 
-            num = i 
-    return num  
+def botpredict(username):
+    bom = botometer.Botometer(wait_on_ratelimit=True, rapidapi_key=rapidapi_key, **twitter_app_auth)  
+    result = bom.check_account(username)
+    value = result['display_scores']['universal']
+    if(value <= 0.6):
+    	bot = "Not Bot"
+    if(value > 0.6):
+    	bot = "Bot"
+    return{"Bot" : bot}
+
 
 # Create your views here.
 def homepage(request):
@@ -80,6 +88,8 @@ def gettweets(request):
         temp["text"] = tweet.full_text
         temp["username"] = tweet.user.screen_name
         prediction = predict(tweet.full_text)
+        botprediction = botpredict(temp["username"])
+        temp["Bot"] = botprediction["Bot"] 
         temp["label"] = prediction["label"]
         tweets.append(temp)
         usercount.append(temp["username"])
